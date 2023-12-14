@@ -64,7 +64,7 @@ router.post("/add-student", async (req, res) => {
 });
 
 // Edit Student:
-router.put("/Edit-Student/:id", async (req, res) => {
+router.put("/edit-student/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const UpdatedStudent = req.body;
@@ -83,7 +83,7 @@ router.put("/Edit-Student/:id", async (req, res) => {
 });
 
 // Delete Student:
-router.delete("/Delete-student/:id", async (req, res) => {
+router.delete("/delete-student/:id", async (req, res) => {
   try {
     const { id } = req.params;
     if (!id) {
