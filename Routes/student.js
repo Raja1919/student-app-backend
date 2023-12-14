@@ -41,24 +41,26 @@ router.post('/add-student',async (req,res)=>{
 
 
 // Edit Student:
-router.put('/Edit-Student/:id',async (req,res)=>{
+router.put('/:id', async (req, res) => {
   try {
-    const {id}=req.params
-    const UpdatedStudent=req.body
-    if( !id || !UpdatedStudent ){
-      return res.status(400).json({ message: "No data available"})
+    const { id } = req.params;
+    const UpdatedStudent = req.body;
+
+    if (!id || !UpdatedStudent) {
+      return res.status(400).json({ message: 'No data available' });
     }
 
-    const result=await editStudent(id,UpdatedStudent)
-    if(!result){
-      return res.status(400).json({message:"posting data error"})
+    const result = await editStudent(id, UpdatedStudent);
+
+    if (!result) {
+      return res.status(400).json({ message: 'Editing data error' });
     }
-    res.status(200).json({message:"edited succesfully"})
+
+    res.status(200).json({ message: 'Edited successfully' });
   } catch (error) {
-    res.status(500).json({ message: "Internal server error"});
-    
+    res.status(500).json({ message: 'Internal server error' });
   }
-})
+});
 
 
 // Delete Student:
